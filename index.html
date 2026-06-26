@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nguyen Thanh Do — Technical Lead</title>
+<meta name="description" content="Technical Lead with 11+ years in Node.js, Cloud (AWS), and AI-driven delivery. Based in Ho Chi Minh City.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0f172a;--surface:#1e293b;--border:#334155;
+  --text:#f1f5f9;--muted:#94a3b8;--dim:#475569;
+  --blue:#3b82f6;--blue-dim:#1e3a5f;--blue-light:#93c5fd;
+  --green:#22c55e;--green-dim:#14532d;
+  --purple:#a78bfa;--purple-dim:#2e1065;
+  --amber:#f59e0b;
+}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(15,23,42,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;height:52px;display:flex;align-items:center;justify-content:space-between}
+.nav-name{font-weight:700;font-size:.95rem;letter-spacing:.02em}
+.nav-links{display:flex;gap:20px}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.82rem;transition:color .15s}
+.nav-links a:hover{color:var(--text)}
+
+/* LAYOUT */
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+
+/* HERO */
+#hero{padding:120px 0 80px;border-bottom:1px solid var(--border)}
+.hero-inner{display:grid;grid-template-columns:1fr auto;align-items:center;gap:48px}
+.hero-eyebrow{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-light);margin-bottom:16px;font-weight:600}
+h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:800;line-height:1.1;margin-bottom:12px}
+h1 span{color:var(--blue)}
+.hero-title{font-size:1rem;color:var(--muted);margin-bottom:24px;max-width:560px}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.tag{font-size:.73rem;padding:4px 10px;border-radius:20px;font-weight:500}
+.tag-blue{background:var(--blue-dim);color:var(--blue-light)}
+.tag-green{background:var(--green-dim);color:var(--green)}
+.tag-purple{background:var(--purple-dim);color:var(--purple)}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:10px 20px;border-radius:6px;font-size:.85rem;font-weight:600;text-decoration:none;transition:opacity .15s}
+.btn:hover{opacity:.85}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-secondary{background:var(--surface);color:var(--text);border:1px solid var(--border)}
+.hero-stats{display:flex;flex-direction:column;gap:20px;text-align:center}
+.stat-num{font-size:2.4rem;font-weight:800;color:var(--blue-light);line-height:1}
+.stat-label{font-size:.72rem;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+
+/* SECTIONS */
+section{padding:72px 0;border-bottom:1px solid var(--border)}
+.section-label{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:10px}
+h2{font-size:1.7rem;font-weight:800;margin-bottom:40px}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.skill-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px 22px}
+.skill-card-title{font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:12px}
+.skill-pills{display:flex;flex-wrap:wrap;gap:6px}
+.pill{font-size:.75rem;padding:3px 10px;border-radius:4px;background:rgba(255,255,255,.05);color:var(--muted);border:1px solid var(--border)}
+.pill.hot{color:var(--blue-light);border-color:var(--blue-dim);background:rgba(59,130,246,.08)}
+
+/* EXPERIENCE */
+.timeline{display:flex;flex-direction:column;gap:0}
+.tl-item{display:grid;grid-template-columns:180px 1fr;gap:0 32px;position:relative}
+.tl-item+.tl-item{margin-top:40px}
+.tl-left{padding-top:4px}
+.tl-period{font-size:.78rem;color:var(--dim);line-height:1.4}
+.tl-period strong{display:block;color:var(--muted);font-size:.82rem;margin-bottom:2px}
+.tl-dot{width:10px;height:10px;border-radius:50%;background:var(--blue);margin:6px auto 0;position:relative}
+.tl-line{width:2px;background:var(--border);height:calc(100% + 40px);margin:8px auto 0;position:relative}
+.tl-item:last-child .tl-line{display:none}
+.tl-right{}
+.tl-company{font-size:.78rem;color:var(--blue-light);font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+.tl-role{font-size:1.1rem;font-weight:700;margin-bottom:8px}
+.tl-stack{font-size:.73rem;color:var(--dim);margin-bottom:10px;font-style:italic}
+.tl-bullets{list-style:none;padding:0}
+.tl-bullets li{font-size:.85rem;color:var(--muted);padding:3px 0 3px 14px;position:relative;line-height:1.5}
+.tl-bullets li::before{content:"›";position:absolute;left:0;color:var(--blue)}
+.tl-sub{margin-top:16px;padding:14px 16px;background:rgba(255,255,255,.03);border-left:2px solid var(--border);border-radius:0 6px 6px 0}
+.tl-sub-title{font-size:.8rem;font-weight:700;color:var(--text);margin-bottom:6px}
+
+/* AI CALLOUT */
+.ai-card{background:linear-gradient(135deg,rgba(59,130,246,.12),rgba(167,139,250,.08));border:1px solid rgba(59,130,246,.3);border-radius:12px;padding:28px 32px;margin:40px 0}
+.ai-card-title{font-size:1rem;font-weight:700;margin-bottom:8px}
+.ai-card-desc{font-size:.88rem;color:var(--muted);line-height:1.7}
+
+/* EDUCATION */
+.edu-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.edu-school{font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:4px}
+.edu-degree{font-size:.95rem;font-weight:600}
+.edu-meta{font-size:.78rem;color:var(--dim);margin-top:4px}
+.edu-gpa{font-size:1.5rem;font-weight:800;color:var(--green)}
+
+/* CONTACT */
+#contact{border-bottom:none}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.contact-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 18px;text-decoration:none;color:inherit;display:flex;align-items:center;gap:12px;transition:border-color .15s}
+.contact-card:hover{border-color:var(--blue)}
+.contact-icon{font-size:1.2rem;width:36px;text-align:center}
+.contact-label{font-size:.72rem;color:var(--dim);text-transform:uppercase;letter-spacing:.06em}
+.contact-value{font-size:.85rem;font-weight:500;color:var(--text);margin-top:1px}
+
+/* FOOTER */
+footer{padding:28px 0;text-align:center;color:var(--dim);font-size:.78rem;border-top:1px solid var(--border)}
+
+/* RESPONSIVE */
+@media(max-width:700px){
+  .hero-inner{grid-template-columns:1fr;gap:32px}
+  .hero-stats{flex-direction:row;justify-content:center}
+  .tl-item{grid-template-columns:1fr}
+  .tl-left{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+  .tl-dot,.tl-line{display:none}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <span class="nav-name">Nguyen Thanh Do</span>
+    <div class="nav-links">
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="hero-eyebrow">Technical Lead · Backend Engineer</p>
+        <h1>Nguyen<br><span>Thanh Do</span></h1>
+        <p class="hero-title">Building scalable systems in Node.js &amp; AWS, leading engineering teams, and shipping faster with AI-driven delivery pipelines.</p>
+        <div class="hero-tags">
+          <span class="tag tag-blue">Node.js · NestJS</span>
+          <span class="tag tag-blue">AWS · Cloud</span>
+          <span class="tag tag-green">AI-driven Delivery</span>
+          <span class="tag tag-purple">Multi-agent Pipelines</span>
+        </div>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="mailto:thanhdo92it@gmail.com">Get in touch</a>
+          <a class="btn btn-secondary" href="https://linkedin.com/in/donguyen-a7813061" target="_blank">LinkedIn</a>
+          <a class="btn btn-secondary" href="https://github.com/nthanhdo" target="_blank">GitHub</a>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">11+</div>
+          <div class="stat-label">Years engineering</div>
+        </div>
+        <div>
+          <div class="stat-num">5+</div>
+          <div class="stat-label">Years leading teams</div>
+        </div>
+        <div>
+          <div class="stat-num">8</div>
+          <div class="stat-label">Engineers led</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <p class="section-label">Expertise</p>
+    <h2>Core Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-card-title">Backend</div>
+        <div class="skill-pills">
+          <span class="pill hot">Node.js</span><span class="pill hot">NestJS</span><span class="pill hot">TypeScript</span>
+          <span class="pill">Express</span><span class="pill">gRPC</span><span class="pill">WebSocket</span>
+          <span class="pill">BullMQ</span><span class="pill">REST APIs</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">Cloud &amp; DevOps</div>
+        <div class="skill-pills">
+          <span class="pill hot">AWS Lambda</span><span class="pill hot">EC2 · S3</span><span class="pill hot">SQS · SNS</span>
+          <span class="pill">Docker</span><span class="pill">CI/CD</span><span class="pill">Nginx</span>
+          <span class="pill">Jenkins</span><span class="pill">GitLab CI</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">AI &amp; Automation</div>
+        <div class="skill-pills">
+          <span class="pill hot">Claude Code</span><span class="pill hot">Gemini</span><span class="pill hot">Multi-agent</span>
+          <span class="pill">OpenAI</span><span class="pill">AI code review</span><span class="pill">Test gen</span>
+          <span class="pill">Doc automation</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">Databases</div>
+        <div class="skill-pills">
+          <span class="pill hot">PostgreSQL</span><span class="pill hot">MongoDB</span><span class="pill">MySQL</span>
+          <span class="pill">DynamoDB</span><span class="pill">Redis</span><span class="pill">ElasticSearch</span>
+          <span class="pill">RabbitMQ</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">Frontend</div>
+        <div class="skill-pills">
+          <span class="pill">Next.js</span><span class="pill">React</span><span class="pill">React Native</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">Leadership</div>
+        <div class="skill-pills">
+          <span class="pill hot">Technical estimation</span><span class="pill hot">Code review</span>
+          <span class="pill">Architecture</span><span class="pill">Mentoring</span>
+          <span class="pill">Agile / Scrum</span><span class="pill">Stakeholder mgmt</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ai-card">
+      <div class="ai-card-title">AI-Driven Delivery — Key Differentiator</div>
+      <div class="ai-card-desc">
+        Running a multi-agent development pipeline (Claude Code + Gemini) that automates code review, test-case generation, documentation (PRD / FRD / SRS / TSD), and sprint orchestration across BE / FE / Extension repos simultaneously. This approach shortens the feedback loop from days to hours while keeping quality gates in place.
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <p class="section-label">Career</p>
+    <h2>Professional Experience</h2>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-period"><strong>Aug 2022 – Present</strong>~4 years</div>
+          <div class="tl-dot"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-company">Farmi · Gianty (Offshore)</div>
+          <div class="tl-role">Technical Leader</div>
+          <div class="tl-sub">
+            <div class="tl-sub-title">Nobinobi — Apr 2025 – Present</div>
+            <ul class="tl-bullets">
+              <li>Analyzed requirements, estimated features, delegated tasks across a team of 8 for timely releases</li>
+              <li>Led feature development end-to-end — design, implementation, code review, performance optimization</li>
+              <li>Automated code reviews (Gemini &amp; Claude Code via GitLab), test-case generation (Gemini + Qwen-coder), and documentation workflows (PRD / FRD / SRS / TSD)</li>
+              <li>Built and maintained automated testing — unit, integration, and performance; collaborated with PO/PM</li>
+            </ul>
+            <div class="tl-stack">NestJS · Next.js · React Native · PostgreSQL · MongoDB · DynamoDB · Redis · RabbitMQ · AWS · Jest · Vitest · Grafana K6 · Haravan · Tiki · Lazada Express · Momo · Zalo OA</div>
+          </div>
+          <div class="tl-sub" style="margin-top:12px">
+            <div class="tl-sub-title">Kanpani Girls — Aug 2022 – Apr 2025</div>
+            <ul class="tl-bullets">
+              <li>Scoped solutions with customers, led technical decisions, designed system architecture and database</li>
+              <li>Built APIs to spec and coordinated with DevOps across DEV / TEST / STG / Production environments</li>
+              <li>Authored unit, integration, performance, and load tests; verified all deliverables</li>
+            </ul>
+            <div class="tl-stack">Docker · PHP · MySQL · Node.js · Socket.IO · Express.js · Auth0</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-period"><strong>Nov 2020 – Aug 2022</strong>~2 years</div>
+          <div class="tl-dot"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-company">FireGroup · FireLabs</div>
+          <div class="tl-role">Backend Developer</div>
+          <ul class="tl-bullets">
+            <li>Built the backend for <em>AliHunter</em> — a dropshipping product-research platform</li>
+            <li>Developed crawlers (API + HTML scraping) and supporting APIs; provisioned infrastructure with DevOps</li>
+          </ul>
+          <div class="tl-stack">Node.js (ParseServer, Express, Mongoose) · gRPC · MongoDB · PHP (Laravel, Lumen) · Docker</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-period"><strong>May 2016 – Sep 2020</strong>4+ years</div>
+          <div class="tl-dot"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-company">Evolable Asia · GREVO · NINE (via Dentsu)</div>
+          <div class="tl-role">Senior Developer / Team Lead</div>
+          <ul class="tl-bullets">
+            <li>Led PHP &amp; ReactJS teams at Dentsu Techno Camp (Project Management, E-learning, Order Simulation)</li>
+            <li>Delivered backend &amp; real-time features for social/game products — Laravel queues, Socket.IO, Redis, AWS</li>
+            <li>Ran CI/CD &amp; DevOps (Jenkins, Docker, AWS, Unity Cloud Build); built Google Assistant Actions on Firebase</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-period"><strong>Apr 2014 – May 2016</strong>2 years</div>
+          <div class="tl-dot"></div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-company">TMA Solutions · CEOFox</div>
+          <div class="tl-role">Full-stack / PHP Developer</div>
+          <ul class="tl-bullets">
+            <li>E-commerce and social-platform projects; grew into a key resource and 4-member team lead within ~6 months</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <p class="section-label">Background</p>
+    <h2>Education</h2>
+    <div class="edu-card">
+      <div>
+        <div class="edu-school">NIIT An Giang</div>
+        <div class="edu-degree">Software Engineering</div>
+        <div class="edu-meta">Sep 2011 – May 2013</div>
+      </div>
+      <div style="text-align:center">
+        <div class="edu-gpa">3.6</div>
+        <div style="font-size:.72rem;color:var(--dim);text-transform:uppercase;letter-spacing:.06em">GPA / 4.0</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="section-label">Let's talk</p>
+    <h2>Get in Touch</h2>
+    <div class="contact-grid">
+      <a class="contact-card" href="mailto:thanhdo92it@gmail.com">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value">thanhdo92it@gmail.com</div>
+        </div>
+      </a>
+      <a class="contact-card" href="https://linkedin.com/in/donguyen-a7813061" target="_blank">
+        <div class="contact-icon">💼</div>
+        <div>
+          <div class="contact-label">LinkedIn</div>
+          <div class="contact-value">donguyen-a7813061</div>
+        </div>
+      </a>
+      <a class="contact-card" href="https://github.com/nthanhdo" target="_blank">
+        <div class="contact-icon">🐙</div>
+        <div>
+          <div class="contact-label">GitHub</div>
+          <div class="contact-value">github.com/nthanhdo</div>
+        </div>
+      </a>
+      <div class="contact-card" style="cursor:default">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-label">Location</div>
+          <div class="contact-value">Ho Chi Minh City, Vietnam</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  Nguyen Thanh Do · Technical Lead · <span id="yr"></span>
+</footer>
+
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
